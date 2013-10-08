@@ -13,8 +13,18 @@ module.exports = function(grunt) {
                 src: [
                     "src/.prefix",
 
-
+                    "src/ModuleDefinition.js",
                     "src/Module.js",
+
+                    "src/Integrators/.prefix",
+
+                    "src/Integrators/AMD.js",
+                    "src/Integrators/CommonJS.js",
+                    "src/Integrators/Global.js",
+
+                    "src/Integrators/.suffix",
+
+                    "src/.build",
 
                     "src/.suffix"
                 ]

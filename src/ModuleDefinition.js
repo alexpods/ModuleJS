@@ -1,4 +1,3 @@
-;(function() {
 var ModuleDefinition = function(integrators, Module) {
 
     var self = function(name, dependencies, factory) {
@@ -78,64 +77,3 @@ ModuleDefinition.prototype = {
         })
     }
 }
-var Module = function(params) {
-    this._name         = params.name;
-    this._dependencies = params.dependencies;
-    this._factory      = params.factory;
-}
-
-Module.prototype = {
-    getName: function() {
-        return this._name;
-    },
-    getDependencies: function() {
-        return this._dependencies;
-    },
-    getFactory: function() {
-        return this._factory;
-    }
-}
-var Integrators = {};
-
-;(function(Integrators) {
-Integrators.AMD = {
-
-    isSupported: function() {
-        return typeof define === 'function' && define.amd
-    },
-
-    integrate: function(module) {
-        define(module.getName(), module.getDependencies(), module.getFactory());
-    }
-}
-Integrators.CommonJS = {
-
-    isSupported: function() {
-        return typeof exports === "object" && exports;
-    },
-
-    integrate: function(module) {
-        exports = module.getFactory().apply(module, module.getDependencies());
-    }
-
-}
-Integrators.Global = {
-
-    isSupported: function() {
-        return true;
-    },
-
-    integrate: function(module) {
-        var global = this.getGlobal();
-
-        global[module.getName()] = module.getFactory().apply(module, module.getDependencies());
-    },
-
-    getGlobal: function() {
-        var Fn = Function, ev = eval;
-        return (new Fn('return this'))() || ev('this');
-    }
-}
-})(Integrators);
-global.Module = new ModuleDefinition(Integrators, Module);
-})( (new Function('return this'))() );
