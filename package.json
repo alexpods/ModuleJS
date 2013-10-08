@@ -2,7 +2,7 @@
   "name": "module-js",
   "title": "ModuleJS",
   "version": "0.0.0",
-  "description": "Module system for JavaScript. Class, namespace, dependency injection support. RequireJS and CommonJS integration",
+  "description": "Module system for JavaScript. RequireJS and CommonJS integration",
   "author": {
     "name":  "Aleksey Podskrebyshev (Alex Pods)",
     "email": "aleksey.podskrebyshev@gmail.com",
@@ -10,10 +10,7 @@
   },
   "keywords": [
     "module",
-    "class",
-    "namespace",
-    "dependency",
-    "injection",
+    "system",
     "requirejs",
     "commonjs"
   ],

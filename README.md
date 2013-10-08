@@ -1,4 +1,4 @@
 ModuleJS
 ========
 
-Module system for JavaScript. Class, namespace, dependency injection support. RequireJS and CommonJS integration.
+Module system for JavaScript. RequireJS and CommonJS integration.
